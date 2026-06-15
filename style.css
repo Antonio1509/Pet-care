@@ -1,0 +1,390 @@
+/* =========================
+    GLOBAL STYLES & RESET
+========================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 22px;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* =========================
+          HEADER & NAV
+========================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Logo Styling */
+.logo {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #333;
+    border-radius: 50px;
+}
+
+.logo span {
+    color: #2074e1;
+    /* Brand secondary color */
+}
+
+.logo img {
+    max-height: 40px;
+    margin-right: 0.5rem;
+}
+
+/* Desktop Navigation Link Setup */
+.navbar-menu {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+    color: #3784f0;
+}
+
+/* Mobile Hamburger Toggle Layout */
+.navbar-toggler {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.navbar-toggler span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* =========================
+     RESPONSIVE BREAKPOINT
+========================= */
+
+@media (max-width: 768px) {
+    header {
+        padding: 0.3rem 1rem;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .logo img {
+        max-height: 30px;
+        margin-right: 0.3rem;
+    }
+
+    /* Show Hamburger Icon */
+    .navbar-toggler {
+        display: flex;
+    }
+
+    /* Transform Links Into a Mobile Full-Screen Sidebar Drawer */
+    .navbar-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: #ffffff;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        padding-top: 5rem;
+        transition: right 0.4s ease-in-out;
+    }
+
+    .navbar-menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .navbar-menu a {
+        font-size: 1.2rem;
+    }
+
+    /* CSS Logic: open the side drawer when check box is selected */
+    #menu-toggle:checked~.navbar-menu {
+        right: 0;
+    }
+
+    /* CSS Logic: Animate Hamburger lines into an 'X' icon when open */
+    #menu-toggle:checked~.navbar-toggler span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    #menu-toggle:checked~.navbar-toggler span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #menu-toggle:checked~.navbar-toggler span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/* =========================
+         HERO SECTION
+========================= */
+
+main {
+    margin-top: 70px;
+    /* Prevents hero section content hiding behind fixed header */
+    flex: 1;
+    /* Pushes the footer down on pages with shorter content layouts */
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+    /* Sits beneath text content */
+}
+
+.hero_content {
+    position: relative;
+    z-index: 2;
+    /* Forces text container out in front of the video */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    padding: 2rem;
+    margin-top: -4rem;
+    /* Shifts the entire card higher up the page */
+}
+
+/* Almost entirely transparent text background card wrapper */
+.hero_card {
+    background-color: rgba(255, 255, 255, 0.08);
+    /* Set to 0.08 for an almost invisible look */
+    backdrop-filter: blur(4px);
+    /* Subtle blur to help give structure to the invisible panel */
+    -webkit-backdrop-filter: blur(4px);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    /* Very light shadow */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    /* Soft outer edge highlight */
+    max-width: 700px;
+    width: 100%;
+}
+
+.hero_card h1 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    /* Changed to white so it remains clear on dark/varied videos */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    /* Shadow added so white text is readable */
+    font-size: 2rem;
+}
+
+/* Call to Action Enter button formatting */
+.hero_btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #2074e1;
+    color: #ffffff;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px rgba(32, 116, 225, 0.3);
+}
+
+.hero_btn:hover {
+    background-color: #165cb8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(32, 116, 225, 0.4);
+}
+
+/* Optional styling container for quotes layer */
+.quote {
+    margin-top: 1.5rem;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Loader Placeholder Style to prevent screen breakage */
+#loader_wrapper {
+    display: none;
+}
+
+/* =========================
+      PROFESSIONAL FOOTER
+========================= */
+
+footer {
+    background-color: #1a1a1a;
+    color: #b3b3b3;
+    padding: 3rem 2rem 1.5rem 2rem;
+    width: 100%;
+    z-index: 10;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.footer-column h3 {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+/* Modern short color line beneath footer headings */
+.footer-column h3::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: #2074e1;
+    margin-top: 0.4rem;
+}
+
+.footer-column p {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.6rem;
+}
+
+.footer-column ul li a {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #2074e1;
+    padding-left: 4px;
+    /* Subtle micro-interaction shift on hover */
+}
+
+/* Social Icon Alignment Structure */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+    color: #2074e1;
+}
+
+/* Copyright Row */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 2rem auto 0 auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid #333333;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+/* Stack footer columns into a single layer on tablet/mobile views */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
