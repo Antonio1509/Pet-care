@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact us</title>
+    <link rel="stylesheet" href="about and contact styles.css" />
+  </head>
+  <body class="contact-page">
+    <header>
+      <!-- Logo -->
+      <h2 class="logo">
+        <img
+          src="https://i.ibb.co/GQ2qvSs8/Pets-logo.jpg"
+          alt=" Pet Logo "
+          class="logo-image"
+        />
+        Pet<span>care</span>
+      </h2>
+
+      <!-- HAMBURGER MENU -->
+      <input type="checkbox" id="menu-toggle" hidden />
+
+      <label for="menu-toggle" class="navbar-toggler">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <!-- NAV LINKS -->
+      <nav class="navbar-menu">
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./services.html">Services</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Contact Page Header Section -->
+    <section class="contact-page-header">
+      <h1>Contact PetCare</h1>
+      <p>Get in touch with our team for bookings and enquiries.</p>
+    </section>
+
+    <main>
+      <section class="contact-section">
+        <div class="form-container">
+          <h1>Contact PetCare</h1>
+          <p>Need a paw? We're here to help!</p>
+          <form action="https://formspree.io/f/your-form-id" method="POST">
+            <div>
+              <label for="name">Name*:</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Your Name"
+              />
+            </div>
+            <div>
+              <label for="email">Email*:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="your.email@example.com"
+              />
+            </div>
+            <div>
+              <label for="phone">Phone*:</label>
+              <input
+                type="text"
+                id="phone"
+                name="phone"
+                required
+                placeholder="Your contact number"
+              />
+            </div>
+            <div>
+              <label for="message">Message*:</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                placeholder="How can we assist you with your pet care needs?"
+              ></textarea>
+            </div>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="reach-out-section">
+        <div class="contact-container">
+          <!-- Left Column: Image -->
+          <div class="contact-image">
+            <img
+              src="https://i.ibb.co/PGqG7Grr/Little-dog.jpg"
+              alt="Little dog"
+            />
+          </div>
+
+          <!-- Right Column: Text Content -->
+          <div class="reach-out-content">
+            <h2>Reach Out, We're Here to Help!</h2>
+            <p>
+              Whether you have questions about our services, need assistance
+              with booking, or just want to say hi, our team is ready to assist
+              you. Contact us today and let us take care of your pet care needs!
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <!-- Column 1: Brand Info -->
+        <div class="footer-column">
+          <h3>About PetCare</h3>
+          <p>
+            Providing loving, dedicated, and professional care setups for your
+            pets. Your companions are our primary priority.
+          </p>
+        </div>
+
+        <!-- Column 2: Nav System Links -->
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./services.html">Our Services</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contact.html">Contact Support</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact Info Details -->
+        <div class="footer-column">
+          <h3>Get In Touch</h3>
+          <p>123 Pet Avenue, Suite 100</p>
+          <p style="margin-top: 0.5rem">Support: (021) 123-4567</p>
+          <p style="margin-top: 0.5rem">Email: hello@petcare.com</p>
+        </div>
+      </div>
+
+      <!-- Copyright Info Strip -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 PetCare Ltd. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
