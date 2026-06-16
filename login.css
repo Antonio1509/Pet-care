@@ -1,0 +1,163 @@
+/* =========================
+GLOBAL RESET
+========================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, sans-serif;
+    overflow: hidden;
+}
+
+/* =========================
+BACKGROUND VIDEO
+========================= */
+
+.login-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: -2;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: -1;
+}
+
+/* =========================
+LOGIN LAYOUT
+========================= */
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 450px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================
+LOGO
+========================= */
+
+.login-logo img {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.login-logo h1 {
+    color: white;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.login-logo span {
+    color: #2074e1;
+}
+
+/* =========================
+TEXT
+========================= */
+
+.login-card h2 {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.login-card p {
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 2rem;
+}
+
+/* =========================
+FORM
+========================= */
+
+.input-group {
+    margin-bottom: 1rem;
+}
+
+.input-group input {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+    outline: none;
+
+    border-radius: 10px;
+
+    font-size: 1rem;
+}
+
+/* =========================
+BUTTON
+========================= */
+
+.login-btn {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: #2074e1;
+
+    color: white;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #165cb8;
+    transform: translateY(-2px);
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .login-card {
+        padding: 2rem;
+    }
+
+    .login-logo h1 {
+        font-size: 1.6rem;
+    }
+}
