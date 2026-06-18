@@ -67,11 +67,15 @@ header {
 .navbar-menu {
     display: flex;
     align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    flex: 1;
 }
 
 .navbar-menu ul {
     list-style: none;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     display: flex;
     align-items: center;
@@ -87,6 +91,178 @@ header {
 
 .navbar-menu a:hover {
     color: #3784f0;
+}
+
+.theme-toggle-container {
+    position: absolute;
+    right: 2rem;
+    bottom: -0.3rem;
+}
+
+.theme-toggle-btn {
+    padding: 10px 14px;
+    border: 1px solid #3784f0;
+    background: #ffffff;
+    color: #3784f0;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.theme-toggle-btn:hover {
+    background: #3784f0;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    .navbar-menu {
+        justify-content: flex-start;
+    }
+
+    .theme-toggle-container {
+        position: static;
+        margin-left: 1rem;
+        margin-top: 0.5rem;
+    }
+}
+
+body.dark-theme {
+    background: #0b1120;
+    color: #e2e8f0;
+}
+
+body.dark-theme,
+body.dark-theme *,
+body.dark-theme *::before,
+body.dark-theme *::after {
+    color: #f8fafc !important;
+}
+
+body.dark-theme a,
+body.dark-theme a:link,
+body.dark-theme a:visited {
+    color: #93c5fd !important;
+}
+
+body.dark-theme a:hover {
+    color: #f8fafc;
+}
+
+body.dark-theme main,
+body.dark-theme section,
+body.dark-theme .card,
+body.dark-theme .service-card,
+body.dark-theme .booking-form,
+body.dark-theme .form-container,
+body.dark-theme .info-card,
+body.dark-theme .footer-container,
+body.dark-theme .footer-bottom,
+body.dark-theme .about-page-header,
+body.dark-theme .contact-page-header,
+body.dark-theme .services-header,
+body.dark-theme .staff-layout,
+body.dark-theme .contact-section,
+body.dark-theme .about-section,
+body.dark-theme .values-section,
+body.dark-theme .services-section,
+body.dark-theme .reach-out-section {
+    background: #111827;
+    color: #e2e8f0;
+    border-color: rgba(148, 163, 184, 0.12);
+}
+
+body.dark-theme header {
+    background-color: #070b18;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
+}
+
+body.dark-theme .navbar-menu a {
+    color: #a5b4fc;
+}
+
+body.dark-theme .navbar-menu a:hover {
+    color: #ffffff;
+}
+
+body.dark-theme .theme-toggle-btn {
+    background: #1e293b;
+    color: #e2e8f0;
+    border-color: #64748b;
+}
+
+body.dark-theme .services-page .services {
+    background-color: #090f1b;
+}
+
+body.dark-theme .services-page .services-header {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+body.dark-theme .about-page-header,
+body.dark-theme .contact-page-header {
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+body.dark-theme .about-page-header h1,
+body.dark-theme .contact-page-header h1 {
+    color: #f8fafc;
+}
+
+body.dark-theme .about-page-header p,
+body.dark-theme .contact-page-header p {
+    color: #cbd5e1;
+}
+
+body.dark-theme .about-section,
+body.dark-theme .values-section,
+body.dark-theme .services-section,
+body.dark-theme .contact-section,
+body.dark-theme .reach-out-section,
+body.dark-theme .footer-container,
+body.dark-theme .footer-bottom,
+body.dark-theme .service-card,
+body.dark-theme .card,
+body.dark-theme .booking-form,
+body.dark-theme .info-card,
+body.dark-theme .form-container {
+    background: #111827;
+    color: #e2e8f0;
+    border-color: rgba(148, 163, 184, 0.12);
+}
+
+body.dark-theme .footer-container p,
+body.dark-theme .footer-column h3,
+body.dark-theme .footer-container a,
+body.dark-theme .reach-out-content h2,
+body.dark-theme .reach-out-content p,
+body.dark-theme .about-text-box p,
+body.dark-theme .about-text-box h2,
+body.dark-theme .values-text-box h2,
+body.dark-theme .values-text-box p,
+body.dark-theme .contact-image img,
+body.dark-theme .team-image-box img {
+    color: #e2e8f0;
+}
+
+body.dark-theme input,
+body.dark-theme textarea,
+body.dark-theme select {
+    background: #1e293b;
+    color: #e2e8f0;
+    border: 1px solid #334155;
+}
+
+body.dark-theme button,
+body.dark-theme .login-btn,
+body.dark-theme .store-btn,
+body.dark-theme .submit-btn,
+body.dark-theme .book-now-btn {
+    background: #1e293b;
+    color: #e2e8f0;
 }
 
 /* Mobile Hamburger Toggle Layout */
@@ -273,10 +449,25 @@ main {
 
 footer {
     background-color: #1a1a1a;
-    color: #b3b3b3;
+    color: #ffffff;
     padding: 3rem 2rem 1.5rem 2rem;
     width: 100%;
     z-index: 10;
+}
+
+body.dark-theme footer {
+    background-color: #111827;
+    color: #f8fafc;
+}
+
+footer a,
+footer a:link,
+footer a:visited {
+    color: #d1d5db;
+}
+
+footer a:hover {
+    color: #93c5fd;
 }
 
 .footer-container {
@@ -338,6 +529,10 @@ footer {
     padding-top: 1.5rem;
     border-top: 1px solid #333333;
     text-align: center;
+}
+
+body.dark-theme .footer-bottom {
+    border-top-color: #334155;
 }
 
 .footer-bottom p {
