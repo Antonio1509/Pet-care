@@ -204,13 +204,40 @@ ABOUT PAGE HEADER SECTION (With gradient, below navbar)
   font-size: 0.9rem;
   font-weight: bold;
   border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  overflow: visible; /* This allows sparkles to float outside the button borders */
+  position: relative;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
+/* Individual particle styling controlled dynamically by JS */
+.sparkle-particle {
+  position: absolute;
+  pointer-events: none; /* This stops the sparkles from blocking clicks */
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #fff, 0 0 20px #a777e3; /* This gives the sparkles a glowing aura */
+  animation: fly-and-fade 0.8s ease-out forwards;
+}
+
+/* Sparkle animation trajectory */
+@keyframes fly-and-fade {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    /* The variables will be driven dynamically by JS... I hope lol */
+    transform: translate(var(--x), var(--y)) scale(0);
+    opacity: 0;
+  }
+}
 
 .store-btn:hover {
   background-color: #ffffff;
   color: #ec6f13;
+  
 }
 
 /* Responsive fix for mobile layout stacking */
@@ -344,6 +371,7 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 button:hover {
