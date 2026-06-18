@@ -1,5 +1,5 @@
 /* =========================
-   Chad Js
+   Chad JavaScript
 ========================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =========================
-   Siwaphiwe JS
+   Siwaphiwe JavaScript
 ========================= */
 
 
