@@ -469,3 +469,291 @@ footer {
         transform: translateY(0);
     }
 }
+
+/* =========================
+        SERVICES PAGE
+========================= */
+
+.services {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: transparent;
+    color: #333;
+    /* matches global body text */
+}
+
+.services h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #333;
+    /* align with header/body text color */
+}
+
+/* Navigation on the services page should match the site's main nav colours */
+nav {
+    background-color: #ffffff;
+    /* same as header background at top */
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: #555;
+    /* same as .navbar-menu links */
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #3784f0;
+    /* same hover colour as .navbar-menu */
+}
+
+/* Buttons in services should use primary brand colour from the top of the file */
+.service-button {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.service-button button {
+    background-color: #2074e1;
+    /* brand primary */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.service-button button:hover {
+    background-color: #165cb8;
+    /* slightly darker on hover */
+    transform: translateY(-3px);
+}
+
+/* STAFF / CARD styles should align with global colours */
+.staff-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    max-width: 400px;
+    width: 100%;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #2074e1;
+    /* use brand colour */
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#staff-rating {
+    color: #f39c12;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#staff-history {
+    line-height: 1.6;
+    color: #555;
+}
+
+.book-now-btn,
+.submit-btn {
+    background-color: #2ECC71;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 18px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: 0.3s ease;
+}
+
+.book-now-btn:hover,
+.submit-btn:hover {
+    background-color: #27AE60;
+    transform: translateY(-2px);
+}
+
+.booking-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px 20px 40px;
+}
+
+.booking-form {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    width: min(100%, 480px);
+    padding: 20px;
+}
+
+.booking-form h3 {
+    margin-top: 0;
+    color: #2C3E50;
+}
+
+.booking-form p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.booking-form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #2C3E50;
+}
+
+.booking-form input,
+.booking-form select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    margin-bottom: 14px;
+ 
+
+
+/* =========================
+   MOBILE RESPONSIVE: SERVICES
+========================= */
+
+@media (max-width: 768px) {
+    main {
+        margin-top: 60px;
+        /* Account for compact fixed header */
+        flex: 1;
+    }
+
+    .services {
+        padding: 12px 10px 8px 10px;
+    }
+
+    .services h2 {
+        font-size: 1.2rem;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    .service-button {
+        gap: 8px;
+    }
+
+    .service-button button {
+        padding: 8px 14px;
+        font-size: 12px;
+        flex: 1 1 calc(50% - 4px);
+        /* Two buttons per row on mobile */
+        min-width: 100px;
+    }
+
+    .staff-section {
+        padding: 10px 8px;
+    }
+
+    .card {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .card img {
+        width: 110px;
+        height: 110px;
+        margin-bottom: 12px;
+    }
+
+    .card h2 {
+        font-size: 1rem;
+        margin-bottom: 6px;
+    }
+
+    #staff-rating {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    #staff-history {
+        font-size: 0.85rem;
+    }
+
+    .book-now-btn {
+        padding: 8px 14px;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .booking-section {
+        padding: 10px 8px 20px;
+    }
+
+    .booking-form {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .booking-form h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+
+    .booking-form p {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+    }
+
+    .booking-form label {
+        font-size: 0.8rem;
+        margin-bottom: 4px;
+    }
+
+    .booking-form input,
+    .booking-form select {
+        padding: 6px;
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .submit-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}   font-size: 14px;
+}
