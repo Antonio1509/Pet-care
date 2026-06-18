@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="https://i.ibb.co/GQ2qvSs8/Pets-logo.jpg">
 </head>
-<body>
+<body class="services-page">
 
     <header>
         <!-- Logo -->
@@ -28,74 +28,111 @@
         <!-- NAV LINKS -->
         <nav class="navbar-menu">
             <ul>
-                <li><a href=" ./index.html "> Home </a></li>
-                <li><a href=" ./services.html "> Services </a></li>
-                <li><a href=" ./About.html "> About </a></li>
-                <li><a href=" ./contact.html "> Contact </a></li>
+                <li><a href="./index.html"> Home </a></li>
+                <li><a href="./services.html"> Services </a></li>
+                <li><a href="./About.html"> About </a></li>
+                <li><a href="./contact.html"> Contact </a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-    <section class="services">
-        <h2>Our services</h2>
+        <section class="services">
+            <div class="services-header">
+                <span class="section-tag">Premium care</span>
+                <h2>Our services</h2>
+                <p class="section-intro">Explore expert care for your pets with tailored services, trusted professionals, and fast booking in one place.</p>
+            </div>
 
-        <div class="service-button">
-            <button onclick="showStaff('PetSitting')">PetSitting</button>
-            <button onclick="showStaff('PetWalking')">PetWalking</button>
-            <button onclick="showStaff('PetGrooming')">PetGrooming</button>
-            <button onclick="showStaff('PetTransportation')">PetTransportation</button>
-        </div>
-    </section>
+            <div class="service-grid">
+                <article class="service-card fade-in-up">
+                    <h3>Pet Sitting</h3>
+                    <p>Trusted in-home care so your pet stays comfortable and happy while you’re away.</p>
+                    <button onclick="showStaff('PetSitting')">View details</button>
+                </article>
 
-    <section class="staff-section">
-        <div id="staff-card" class="card">
-            <img id="staff-image" src="" alt="Staff Member">
+                <article class="service-card fade-in-up">
+                    <h3>Dog Walking</h3>
+                    <p>Daily walks crafted around your dog’s energy level and needs.</p>
+                    <button onclick="showStaff('PetWalking')">View details</button>
+                </article>
 
-            <h2 id="staff-name"></h2>
+                <article class="service-card fade-in-up">
+                    <h3>Pet Grooming</h3>
+                    <p>Gentle grooming sessions designed for comfort, cleanliness, and confidence.</p>
+                    <button onclick="showStaff('PetGrooming')">View details</button>
+                </article>
 
-            <p id="staff-rating"> ratings will appear here</p>
+                <article class="service-card fade-in-up">
+                    <h3>Pet Transportation</h3>
+                    <p>Safe rides for vet visits, grooming appointments, and trips around town.</p>
+                    <button onclick="showStaff('PetTransportation')">View details</button>
+                </article>
+            </div>
+        </section>
 
-            <p id="staff-history"> Click one of our services above to learn
-                more about our staff members and their experience in the pet care industry.
-                Each staff member has a unique background and skill set, ensuring that your pet receives the best care possible. 
-                Whether you're looking for a pet sitter, dog walker, groomer, or transportation service, our team is here to provide exceptional care for your furry friend.
-            </p>
+        <section class="staff-section">
+            <div class="staff-layout">
+                <div class="staff-content">
+                    <div id="staff-card" class="card fade-in-up">
+                        <img id="staff-image" src="" alt="Staff Member">
 
-            <button id="book-now-btn" class="book-now-btn" type="button">Book now!!!</button>
-        </div>
-    </section>
+                        <h2 id="staff-name"></h2>
 
-    <section class="booking-section">
-        <form id="booking-form" class="booking-form" action="https://formspree.io/f/your-form-id" method="POST" hidden>
-            <h3>Book Your Pet Care Session</h3>
-            <p>Fill in the details below and we will contact you shortly.</p>
+                        <p id="staff-rating">ratings will appear here</p>
 
-            <label for="dog-breed">Dog Breed</label>
-            <input id="dog-breed" name="dog_breed" type="text" placeholder="e.g. Labrador" required>
+                        <p id="staff-history">Click one of our services above to learn more about our staff members and their experience in the pet care industry. Each specialist has a unique background and skill set tailored to the service they provide.</p>
 
-            <label for="booking-service">The Service</label>
-            <input id="booking-service" name="service" type="text" readonly required>
+                        <button id="book-now-btn" class="book-now-btn" type="button">Book now</button>
+                    </div>
 
-            <label for="dog-size">Pet Size</label>
-            <select id="dog-size" name="dog_size" required>
-                <option value="">Select size</option>
-                <option value="Small">Small</option>
-                <option value="Medium">Medium</option>
-                <option value="Large">Large</option>
-            </select>
+                    <form id="booking-form" class="booking-form fade-in-up" action="https://formspree.io/f/your-form-id" method="POST" hidden>
+                        <h3>Book Your Pet Care Session</h3>
+                        <p>Fill in the details below and we will contact you shortly.</p>
 
-            <label for="favourite-treat">Dog's Favourite Treat</label>
-            <input id="favourite-treat" name="dog_favourite_treat" type="text" placeholder="e.g. Chicken bites" required>
+                        <label for="dog-breed">Pet Type</label>
+                        <input id="dog-breed" name="dog_breed" type="text" placeholder="e.g. Labrador" required>
 
-            <label for="duration">Duration</label>
-            <input id="duration" name="duration" type="text" placeholder="e.g. 1 hour" required>
+                        <label for="booking-service">The Service</label>
+                        <input id="booking-service" name="service" type="text" readonly required>
 
-            <input type="hidden" id="booking-staff" name="staff_member">
+                        <label for="dog-size">Pet Size</label>
+                        <select id="dog-size" name="dog_size" required>
+                            <option value="">Select size</option>
+                            <option value="Small">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Large">Large</option>
+                        </select>
 
-            <button type="submit" class="submit-btn">Send Booking Request</button>
-        </form>
-    </section>
+                        <label for="favourite-treat">Pet's Favourite Treat</label>
+                        <input id="favourite-treat" name="dog_favourite_treat" type="text" placeholder="e.g. Chicken bites" required>
+
+                        <label for="duration">Duration</label>
+                        <input id="duration" name="duration" type="text" placeholder="e.g. 1 hour" required>
+
+                        <input type="hidden" id="booking-staff" name="staff_member">
+
+                        <button type="submit" class="submit-btn">Send Booking Request</button>
+                    </form>
+                </div>
+
+                <aside class="staff-info-panel">
+                    <div class="info-card">
+                        <h3>Why choose PetCare?</h3>
+                        <p>We deliver premium pet services backed by experienced staff, flexible booking, and attentive support.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Dedicated specialists</h3>
+                        <p>Each team member is trained to handle pets with care, comfort, and consistency.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Reliable service</h3>
+                        <p>From sitters to transportation, our services are designed around your pet’s needs.</p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 

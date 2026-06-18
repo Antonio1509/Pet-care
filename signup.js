@@ -10,24 +10,31 @@ document.addEventListener("DOMContentLoaded", () => {
         const password = document.getElementById("password").value.trim();
         const confirmPassword = document.getElementById("confirmPassword").value.trim();
 
+        const normalizedUsername = username.toLowerCase();
+
         if (password !== confirmPassword) {
             alert("Passwords do not match! Please try again.");
             return;
         }
 
-        if (username.toLowerCase() === "admin") {
+        if (normalizedUsername === "admin") {
             alert("This username is reserved. Please pick another one.");
+            return;
+        }
+
+        if (localStorage.getItem(normalizedUsername)) {
+            alert("This username is already taken. Please choose another one.");
             return;
         }
 
         const userCredentials = {
             fullname: fullname,
             email: email,
-            username: username,
+            username: normalizedUsername,
             password: password
         };
 
-        localStorage.setItem(username, JSON.stringify(userCredentials));
+        localStorage.setItem(normalizedUsername, JSON.stringify(userCredentials));
 
         alert("Registration Successful! Redirecting you to login.");
         window.location.href = "./login.html";
