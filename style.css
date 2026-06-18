@@ -1,0 +1,759 @@
+/* =========================
+    GLOBAL STYLES & RESET
+========================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 22px;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* =========================
+          HEADER & NAV
+========================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Logo Styling */
+.logo {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #333;
+    border-radius: 50px;
+}
+
+.logo span {
+    color: #2074e1;
+}
+
+.logo img {
+    max-height: 40px;
+    margin-right: 0.5rem;
+}
+
+/* Desktop Navigation Link Setup */
+.navbar-menu {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: #3784f0;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+    color: #3784f0;
+}
+
+/* Mobile Hamburger Toggle Layout */
+.navbar-toggler {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.navbar-toggler span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* =========================
+     RESPONSIVE BREAKPOINT
+========================= */
+
+@media (max-width: 768px) {
+    header {
+        padding: 0.3rem 1rem;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .logo img {
+        max-height: 30px;
+        margin-right: 0.3rem;
+    }
+
+    /* Show Hamburger Icon */
+    .navbar-toggler {
+        display: flex;
+    }
+
+    /* Transform Links Into a Mobile Full-Screen Sidebar Drawer */
+    .navbar-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: #ffffff;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        padding-top: 5rem;
+        transition: right 0.4s ease-in-out;
+    }
+
+    .navbar-menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .navbar-menu a {
+        font-size: 1.2rem;
+    }
+
+    /* CSS Logic: open the side drawer when check box is selected */
+    #menu-toggle:checked~.navbar-menu {
+        right: 0;
+    }
+
+    /* CSS Logic: Animate Hamburger lines into an 'X' icon when open */
+    #menu-toggle:checked~.navbar-toggler span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    #menu-toggle:checked~.navbar-toggler span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #menu-toggle:checked~.navbar-toggler span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/* =========================
+        HERO SECTION
+========================= */
+
+main {
+    margin-top: 70px;
+    flex: 1;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero_content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    padding: 2rem;
+    margin-top: -4rem;
+}
+
+.hero_card {
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    max-width: 700px;
+    width: 100%;
+}
+
+.hero_card h1 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    font-size: 2rem;
+}
+
+.hero_btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #2074e1;
+    color: #ffffff;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px rgba(32, 116, 225, 0.3);
+}
+
+.hero_btn:hover {
+    background-color: #165cb8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(32, 116, 225, 0.4);
+}
+
+.quote {
+    margin-top: 1.5rem;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+#loader_wrapper {
+    display: none;
+}
+
+/* =========================
+      PROFESSIONAL FOOTER
+========================= */
+
+footer {
+    background-color: #1a1a1a;
+    color: #b3b3b3;
+    padding: 3rem 2rem 1.5rem 2rem;
+    width: 100%;
+    z-index: 10;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.footer-column h3 {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+.footer-column h3::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: #2074e1;
+    margin-top: 0.4rem;
+}
+
+.footer-column p {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.6rem;
+}
+
+.footer-column ul li a {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #2074e1;
+    padding-left: 4px;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 2rem auto 0 auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid #333333;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+/* ==========================================
+   DEFENSIVE NAV DROPDOWN ISOLATION RULES
+   ========================================== */
+
+.navbar-menu ul li.nav-account-container {
+    position: relative !important;
+    display: inline-block !important;
+}
+
+.nav-account-btn {
+    text-decoration: none;
+    color: #3784f0;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.navbar-menu ul li.nav-account-container .nav-account-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    z-index: 99999;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.navbar-menu ul li.nav-account-container .nav-account-dropdown a {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    padding: 10px 20px !important;
+    color: #333333 !important;
+    font-size: 0.85rem !important;
+    text-decoration: none !important;
+    text-align: center !important;
+    font-weight: 500;
+    margin: 0 !important;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar-menu ul li.nav-account-container .nav-account-dropdown a:hover {
+    background-color: #f4f8ff !important;
+    color: #2074e1 !important;
+}
+
+@media (min-width: 769px) {
+    .navbar-menu ul li.nav-account-container:hover .nav-account-dropdown {
+        display: block !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-menu ul li.nav-account-container {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-menu ul li.nav-account-container .nav-account-dropdown {
+        display: block !important;
+        position: static !important;
+        transform: none !important;
+        box-shadow: none !important;
+        background-color: transparent !important;
+        padding: 0 !important;
+        border: none !important;
+        width: 100% !important;
+        margin-top: 0.5rem !important;
+    }
+
+    .navbar-menu ul li.nav-account-container .nav-account-dropdown a {
+        font-size: 1rem !important;
+        color: #2074e1 !important;
+        background-color: #f8fafc !important;
+        padding: 0.6rem !important;
+        border-radius: 6px !important;
+        margin-bottom: 0.5rem !important;
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+/* ==========================================================================
+   LOGIN ERROR MESSAGE STYLING
+   ========================================================================== */
+#loginErrorMessage {
+    background-color: rgba(192, 92, 107, 0.1); /* Matches your project's rose/pink accent palette */
+    color: #C05C6B;
+    border: 1px solid rgba(192, 92, 107, 0.3);
+    padding: 12px 15px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    
+    /* Smooth slide-down reveal animation */
+    animation: slideDownError 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideDownError {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+        SERVICES PAGE
+========================= */
+
+.services {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: transparent;
+    color: #333;
+    /* matches global body text */
+}
+
+.services h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #333;
+    /* align with header/body text color */
+}
+
+/* Navigation on the services page should match the site's main nav colours */
+nav {
+    background-color: #ffffff;
+    /* same as header background at top */
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: #555;
+    /* same as .navbar-menu links */
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #3784f0;
+    /* same hover colour as .navbar-menu */
+}
+
+/* Buttons in services should use primary brand colour from the top of the file */
+.service-button {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.service-button button {
+    background-color: #2074e1;
+    /* brand primary */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.service-button button:hover {
+    background-color: #165cb8;
+    /* slightly darker on hover */
+    transform: translateY(-3px);
+}
+
+/* STAFF / CARD styles should align with global colours */
+.staff-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    max-width: 400px;
+    width: 100%;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #2074e1;
+    /* use brand colour */
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#staff-rating {
+    color: #f39c12;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#staff-history {
+    line-height: 1.6;
+    color: #555;
+}
+
+.book-now-btn,
+.submit-btn {
+    background-color: #2ECC71;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 18px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: 0.3s ease;
+}
+
+.book-now-btn:hover,
+.submit-btn:hover {
+    background-color: #27AE60;
+    transform: translateY(-2px);
+}
+
+.booking-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px 20px 40px;
+}
+
+.booking-form {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    width: min(100%, 480px);
+    padding: 20px;
+}
+
+.booking-form h3 {
+    margin-top: 0;
+    color: #2C3E50;
+}
+
+.booking-form p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.booking-form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #2C3E50;
+}
+
+.booking-form input,
+.booking-form select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    margin-bottom: 14px;
+ 
+
+
+/* =========================
+   MOBILE RESPONSIVE: SERVICES
+========================= */
+
+@media (max-width: 768px) {
+    main {
+        margin-top: 60px;
+        /* Account for compact fixed header */
+        flex: 1;
+    }
+
+    .services {
+        padding: 12px 10px 8px 10px;
+    }
+
+    .services h2 {
+        font-size: 1.2rem;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    .service-button {
+        gap: 8px;
+    }
+
+    .service-button button {
+        padding: 8px 14px;
+        font-size: 12px;
+        flex: 1 1 calc(50% - 4px);
+        /* Two buttons per row on mobile */
+        min-width: 100px;
+    }
+
+    .staff-section {
+        padding: 10px 8px;
+    }
+
+    .card {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .card img {
+        width: 110px;
+        height: 110px;
+        margin-bottom: 12px;
+    }
+
+    .card h2 {
+        font-size: 1rem;
+        margin-bottom: 6px;
+    }
+
+    #staff-rating {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    #staff-history {
+        font-size: 0.85rem;
+    }
+
+    .book-now-btn {
+        padding: 8px 14px;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .booking-section {
+        padding: 10px 8px 20px;
+    }
+
+    .booking-form {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .booking-form h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+
+    .booking-form p {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+    }
+
+    .booking-form label {
+        font-size: 0.8rem;
+        margin-bottom: 4px;
+    }
+
+    .booking-form input,
+    .booking-form select {
+        padding: 6px;
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .submit-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}   font-size: 14px;
+}
