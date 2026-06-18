@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCare | Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline class="login-video">
+        <source src="Pets video.mp4" type="video/mp4">
+    </video>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Login Container -->
+    <div class="login-container">
+
+        <div class="login-card">
+
+            <div class="login-logo">
+                <img src="https://i.ibb.co/GQ2qvSs8/Pets-logo.jpg" alt="PetCare Logo">
+                <h1>Pet<span>Care</span></h1>
+            </div>
+
+            <h2>Welcome Back</h2>
+            <p>Sign in to continue to PetCare</p>
+
+            <form id="loginForm">
+
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+
+                <button type="submit" class="login-btn">
+                    Login
+                </button>
+                Default username: admin
+                <br>
+                Default password: petcare123
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="login.js"></script>
+
+</body>
+
+</html>
