@@ -35,8 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         localStorage.setItem(normalizedUsername, JSON.stringify(userCredentials));
-
-        alert("Registration Successful! Redirecting you to login.");
-        window.location.href = "./login.html";
+        // Automatically mark the user as logged in and go to services
+        localStorage.setItem("loggedInUser", normalizedUsername);
+        alert("Registration Successful! You are now logged in.");
+        window.location.href = "./services.html";
     });
 });
