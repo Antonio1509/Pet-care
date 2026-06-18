@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pet Care</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://i.ibb.co/GQ2qvSs8/Pets-logo.jpg">
 </head>
 
 <body>
@@ -14,13 +15,11 @@
     </div>
 
     <header>
-        <!-- Logo -->
         <h2 class="logo">
             <img src="https://i.ibb.co/GQ2qvSs8/Pets-logo.jpg" alt=" Pet Logo " class="logo-image">
             Pet<span>care</span>
         </h2>
 
-        <!-- HAMBURGER MENU -->
         <input type="checkbox" id="menu-toggle" hidden>
 
         <label for="menu-toggle" class="navbar-toggler">
@@ -29,18 +28,24 @@
             <span></span>
         </label>
 
-        <!-- NAV LINKS -->
         <nav class="navbar-menu">
             <ul>
-                <li><a href=" ./index.html "> Home </a></li>
-                <li><a href=" ./services.html "> Services </a></li>
-                <li><a href=" ./About.html "> About </a></li>
-                <li><a href=" ./contact.html "> Contact </a></li>
+                <li><a href="./index.html"> Home </a></li>
+                <li><a href="./services.html"> Services </a></li>
+                <li><a href="./About.html"> About </a></li>
+                <li><a href="./contact.html"> Contact </a></li>
+                
+                <li class="nav-account-container">
+                    <a href="#" class="nav-account-btn" onclick="return false;">Account ▾</a>
+                    <div class="nav-account-dropdown">
+                        <a href="./login.html">Login</a>
+                        <a href="./signup.html">Sign Up</a>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <main>
         <section class="hero">
             <video autoplay muted loop playsinline class="bg-video">
@@ -50,7 +55,7 @@
             <div class="hero_content">
                 <div class="hero_card">
                     <h1> Welcome to PetCare </h1>
-                    <a href="./login.html" class="hero_btn"> Enter </a>
+                    <a href="./services.html" class="hero_btn"> Enter </a>
                 </div>
                 <div class="quote">
                     <p class="quote_text"> Where your Pet's Needs Meet Professional Care </p>
@@ -63,14 +68,11 @@
 
 <footer>
     <div class="footer-container">
-        <!-- Column 1: Brand Info -->
         <div class="footer-column">
             <h3>About PetCare</h3>
-            <p>Providing loving, dedicated, and professional care setups for your pets. Your companions are our primary
-                priority.</p>
+            <p>Providing loving, dedicated, and professional care setups for your pets. Your companions are our primary priority.</p>
         </div>
 
-        <!-- Column 2: Nav System Links -->
         <div class="footer-column">
             <h3>Quick Links</h3>
             <ul>
@@ -81,7 +83,6 @@
             </ul>
         </div>
 
-        <!-- Column 3: Contact Info Details -->
         <div class="footer-column">
             <h3>Get In Touch</h3>
             <p> 123 Pet Avenue, Suite 100</p>
@@ -90,11 +91,9 @@
         </div>
     </div>
 
-    <!-- Copyright Info Strip -->
     <div class="footer-bottom">
         <p>&copy; 2026 PetCare Ltd. All Rights Reserved.</p>
     </div>
 </footer>
-
 
 </html>

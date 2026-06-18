@@ -56,7 +56,6 @@ header {
 
 .logo span {
     color: #2074e1;
-    /* Brand secondary color */
 }
 
 .logo img {
@@ -75,12 +74,13 @@ header {
     margin: 0;
     padding: 0;
     display: flex;
+    align-items: center;
     gap: 1.5rem;
 }
 
 .navbar-menu a {
     text-decoration: none;
-    color: #555;
+    color: #3784f0;
     font-weight: 500;
     transition: color 0.3s ease;
 }
@@ -175,14 +175,12 @@ header {
 }
 
 /* =========================
-         HERO SECTION
+        HERO SECTION
 ========================= */
 
 main {
     margin-top: 70px;
-    /* Prevents hero section content hiding behind fixed header */
     flex: 1;
-    /* Pushes the footer down on pages with shorter content layouts */
 }
 
 .hero {
@@ -206,13 +204,11 @@ main {
     transform: translate(-50%, -50%);
     object-fit: cover;
     z-index: 1;
-    /* Sits beneath text content */
 }
 
 .hero_content {
     position: relative;
     z-index: 2;
-    /* Forces text container out in front of the video */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -221,22 +217,16 @@ main {
     width: 100%;
     padding: 2rem;
     margin-top: -4rem;
-    /* Shifts the entire card higher up the page */
 }
 
-/* Almost entirely transparent text background card wrapper */
 .hero_card {
     background-color: rgba(255, 255, 255, 0.08);
-    /* Set to 0.08 for an almost invisible look */
     backdrop-filter: blur(4px);
-    /* Subtle blur to help give structure to the invisible panel */
     -webkit-backdrop-filter: blur(4px);
     padding: 2.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-    /* Very light shadow */
     border: 1px solid rgba(255, 255, 255, 0.15);
-    /* Soft outer edge highlight */
     max-width: 700px;
     width: 100%;
 }
@@ -245,13 +235,10 @@ main {
     margin-top: 0;
     margin-bottom: 1.5rem;
     color: #ffffff;
-    /* Changed to white so it remains clear on dark/varied videos */
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    /* Shadow added so white text is readable */
     font-size: 2rem;
 }
 
-/* Call to Action Enter button formatting */
 .hero_btn {
     display: inline-block;
     text-decoration: none;
@@ -270,14 +257,12 @@ main {
     box-shadow: 0 6px 20px rgba(32, 116, 225, 0.4);
 }
 
-/* Optional styling container for quotes layer */
 .quote {
     margin-top: 1.5rem;
     color: #ffffff;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-/* Loader Placeholder Style to prevent screen breakage */
 #loader_wrapper {
     display: none;
 }
@@ -310,7 +295,6 @@ footer {
     position: relative;
 }
 
-/* Modern short color line beneath footer headings */
 .footer-column h3::after {
     content: '';
     display: block;
@@ -346,28 +330,8 @@ footer {
 .footer-column ul li a:hover {
     color: #2074e1;
     padding-left: 4px;
-    /* Subtle micro-interaction shift on hover */
 }
 
-/* Social Icon Alignment Structure */
-.social-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.social-links a {
-    color: #b3b3b3;
-    text-decoration: none;
-    font-size: 0.85rem;
-    transition: color 0.2s ease;
-}
-
-.social-links a:hover {
-    color: #2074e1;
-}
-
-/* Copyright Row */
 .footer-bottom {
     max-width: 1200px;
     margin: 2rem auto 0 auto;
@@ -381,10 +345,127 @@ footer {
     margin: 0;
 }
 
-/* Stack footer columns into a single layer on tablet/mobile views */
 @media (max-width: 768px) {
     .footer-container {
         grid-template-columns: 1fr;
         gap: 2.5rem;
+    }
+}
+
+/* ==========================================
+   DEFENSIVE NAV DROPDOWN ISOLATION RULES
+   ========================================== */
+
+.navbar-menu ul li.nav-account-container {
+    position: relative !important;
+    display: inline-block !important;
+}
+
+.nav-account-btn {
+    text-decoration: none;
+    color: #3784f0;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.navbar-menu ul li.nav-account-container .nav-account-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    z-index: 99999;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.navbar-menu ul li.nav-account-container .nav-account-dropdown a {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    padding: 10px 20px !important;
+    color: #333333 !important;
+    font-size: 0.85rem !important;
+    text-decoration: none !important;
+    text-align: center !important;
+    font-weight: 500;
+    margin: 0 !important;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar-menu ul li.nav-account-container .nav-account-dropdown a:hover {
+    background-color: #f4f8ff !important;
+    color: #2074e1 !important;
+}
+
+@media (min-width: 769px) {
+    .navbar-menu ul li.nav-account-container:hover .nav-account-dropdown {
+        display: block !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-menu ul li.nav-account-container {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-menu ul li.nav-account-container .nav-account-dropdown {
+        display: block !important;
+        position: static !important;
+        transform: none !important;
+        box-shadow: none !important;
+        background-color: transparent !important;
+        padding: 0 !important;
+        border: none !important;
+        width: 100% !important;
+        margin-top: 0.5rem !important;
+    }
+
+    .navbar-menu ul li.nav-account-container .nav-account-dropdown a {
+        font-size: 1rem !important;
+        color: #2074e1 !important;
+        background-color: #f8fafc !important;
+        padding: 0.6rem !important;
+        border-radius: 6px !important;
+        margin-bottom: 0.5rem !important;
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+/* ==========================================================================
+   LOGIN ERROR MESSAGE STYLING
+   ========================================================================== */
+#loginErrorMessage {
+    background-color: rgba(192, 92, 107, 0.1); /* Matches your project's rose/pink accent palette */
+    color: #C05C6B;
+    border: 1px solid rgba(192, 92, 107, 0.3);
+    padding: 12px 15px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    
+    /* Smooth slide-down reveal animation */
+    animation: slideDownError 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideDownError {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
