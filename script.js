@@ -234,3 +234,107 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+/* =========================
+   Nuriyah JavaScript
+========================= */
+const registerBtn = document.querySelector(".register");
+const accountsContainer = document.getElementById("accounts");
+const image = document.getElementById("image");
+const imageChange = document.getElementById("imageChange");
+const reviewSection = document.getElementById("reviews");
+
+class Carer {
+    constructor(image, name, experience, skills, specialty, area) {
+        this.image = image;
+        this.name = name;
+        this.experience = experience;
+        this.skills = skills;
+        this.specialty = specialty;
+        this.area = area;
+    }
+}
+
+imageChange.addEventListener("click", ()=>{
+     const profilePic = prompt ("Enter image url")
+    if (profilePic){
+        image.src = profilePic
+    }
+})
+
+registerBtn.addEventListener("click", () => {
+    const name = document.getElementById("name").value;
+    const experience = document.getElementById("experience").value;
+    const skills = document.getElementById("skills").value;
+    const specialty = document.getElementById("specialty").value;
+    const area = document.getElementById("area").value;
+
+    const carer = new Carer(
+        image.src,
+        name,
+        experience,
+        skills,
+        specialty,
+        area
+    );
+
+    const account = document.createElement("div");
+    account.classList.add("account");
+
+    account.innerHTML = `
+        <img src="${image.src}">
+        <h3>${carer.name}</h3>
+        <p><b>Experience:</b> ${carer.experience}</p>
+        <p><b>Skills:</b> ${carer.skills}</p>
+        <p><b>Specialty:</b> ${carer.specialty}</p>
+        <p><b>Area:</b> ${carer.area}</p>
+
+        <button class="reviewBtn">Add Review</button>
+    `;
+
+    accountsContainer.appendChild(account);
+
+    // Clear form
+    document.getElementById("name").value = "";
+    document.getElementById("experience").value = "";
+    document.getElementById("skills").value = "";
+    document.getElementById("specialty").value = "";
+    document.getElementById("area").value = "";
+
+    const reviewBtn = account.querySelector(".reviewBtn");
+
+    reviewBtn.addEventListener("click", () =>{
+        const review = document.createElement("div");
+            
+        review.innerHTML = `
+        <h3 id="note">Please be respectful to all parties involved when writing your review</h3>
+        <input class="reviewer" type="text" placeholder="Your name">
+        <input type="text" placeholder="Who is your review for?">
+        <textarea class="text">Write your review</textarea>
+        
+        <button class="post">Post review</button>
+        `;
+
+        account.appendChild(review);
+
+        const postBtn = review.querySelector(".post");
+    
+        postBtn.addEventListener("click", () =>{
+            const reviewer = review.querySelector(".reviewer").value;
+            const text = review.querySelector(".text").value;
+
+            if (!reviewer || !text) return;
+
+            const reviewCard = document.createElement("div");
+
+            reviewCard.innerHTML = `
+                <h4>${reviewer}</h4>
+                <p><b>Review for:</b>${carer.name}</p>
+                <p>${text}</p>
+            `
+            reviewSection.appendChild(reviewCard);
+
+            review.remove();
+        })
+    })
+});
