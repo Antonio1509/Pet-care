@@ -47,14 +47,17 @@ Finding reliable, available, and qualified pet sitters or groomers often involve
 ---
 
 ## Project Links
-*   **GitHub Link:** [View Source Code Repository](https://github.com/) *(https://github.com/Antonio1509/Pet-care)*
-*   **Live Website Link:** [Visit Live Production Site](https://antonio1509.github.io/Pet-care/) *(https://antonio1509.github.io/Pet-care/)*
+*   **GitHub Link:** [View Source Code Repository](https://github.com/Antonio1509/Pet-care)
+*   **Live Website Link:** [Visit Live Production Site](https://antonio1509.github.io/Pet-care/)
 
 ---
 
 ## Challenges Faced
 *   **Nested Component Lifecycle Control:** Attaching distinct review sub-forms within dynamically rendered carer instances created scoping and bubble complications. When generating elements dynamically, standard global element listeners fail to recognize them, causing interface events to misfire.
 *   **Multi-User Local State Handling:** Building unique authentication loops and preventing "admin" username collision utilizing basic local storage arrays required tedious validation flows to prevent active credentials from overlapping or mutating silently.
+*   **Asynchronous Callback Orchestration (Services Page):** Managing modular callback chains while updating live elements across the services menu proved difficult. Passing down dynamic state references as callback arguments occasionally resulted in unbound execution contexts, leading to rendering lag when resolving user interactions.
+*   **Monolithic Authentication Logic Transitions:** Designing the dual JavaScript functions for registration and login authorization required strict conditional mapping. Synchronizing the validation errors, handling formatting edge cases, and updating active UI status indicators across multiple separate entry criteria introduced complex architectural overlap.
+*   **Coordinate Synchronization for Custom Sparkle Effects (About Page):** Calculating local cursor offset values relative to the layout boundaries when firing button particles presented challenges. If the absolute DOM target shifted mid-scroll, the 2D transformation vectors (`--x` / `--y`) would calculate incorrectly, breaking the visual physics sequence.
 
 ## Lessons Learned
 *   **Component-Driven Architecture:** I discovered the immense value of keeping event registrations localized to the moment of element creation. Building inline dynamic click handlers immediately upon class instantiation resolves complex document query synchronization issues.
