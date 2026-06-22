@@ -13,7 +13,6 @@ Finding reliable, available, and qualified pet sitters or groomers often involve
 *   **Siwaphiwe Siboto**
 *   **Karah Fisher**
 *   **Nuriyah Davids**
-*   
 
 ---
 
@@ -48,7 +47,7 @@ Finding reliable, available, and qualified pet sitters or groomers often involve
 ---
 
 ## Project Links
-*   **GitHub Link:** [View Source Code Repository](https://github.com/) *()*
+*   **GitHub Link:** [View Source Code Repository](https://github.com/) *(https://github.com/Antonio1509/Pet-care)*
 *   **Live Website Link:** [Visit Live Production Site](https://github.io/) *()*
 
 ---
